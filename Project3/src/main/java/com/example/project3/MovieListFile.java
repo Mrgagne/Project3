@@ -40,11 +40,11 @@ public class MovieListFile {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
         return this;
     }
 
-    public static ObservableList<String> read() {
+    public static ObservableList<String> read()
+    {
         ObservableList<String> aList = FXCollections.observableArrayList();
         try {
             File movieListFile = new File("movies.txt");
