@@ -40,7 +40,17 @@ public class MovieListerController implements Initializable {
     @FXML
     private void handleAddEvent(ActionEvent event)
     {
+        Alert alertBox = new Alert(Alert.AlertType.INFORMATION);
+        alertBox.setHeaderText("You already added that same movie");
+        for (String each : listItems) {
+            if (each.equalsIgnoreCase(inputBox.getText())) {
+                alertBox.showAndWait();
+                return;
+            }
+        }
         listItems.add(inputBox.getText().trim().toLowerCase());
+        inputBox.setText("");
+        inputBox.requestFocus();
     }
 
     @FXML
